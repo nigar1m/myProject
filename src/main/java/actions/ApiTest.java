@@ -30,7 +30,7 @@ public class ApiTest {
                 .post(url)
                 .then()
                 .log().ifError()
-                .statusCode(200)
+                .statusCode(201)
                 .log().body()
                 .extract()
                 .response();
@@ -79,7 +79,7 @@ public class ApiTest {
     public void validateResponse(Response response, int expectedStatusCode) {
         int actualStatusCode = response.getStatusCode();
         if (actualStatusCode != expectedStatusCode) {
-            System.out.println("Expected status code: " + expectedStatusCode + ", but got: " + actualStatusCode);
+            log.info("Expected status code: {}, but got: {}", expectedStatusCode, actualStatusCode);
         }
         assert actualStatusCode == expectedStatusCode : "Status code mismatch!";
     }

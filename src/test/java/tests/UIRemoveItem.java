@@ -51,8 +51,7 @@ public class UIRemoveItem {
         By searchBar = By.cssSelector("input[data-testid='suggestion']");
         elementActions.sendKeysWithKeys(searchBar, "earphone", Keys.ENTER);
 
-        WebElement addToCartButton = driver.findElement(By.cssSelector("button[class='add-to-basket-button']"));
-        elementActions.hover(addToCartButton);
+        elementActions.click(By.cssSelector("button[class='add-to-basket-button']"));
 
         By cartIcon = By.cssSelector("a[class='link account-basket']");
         elementActions.click(cartIcon);

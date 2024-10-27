@@ -68,8 +68,9 @@ public class ElementActions {
         }
     }
 
-    public void hover(WebElement locator) {
+    public void hover(By locator) {
+        WebElement element = driver.findElement(locator);
         Actions actions = new Actions(driver);
-        actions.moveToElement(locator).click(locator).build().perform();
+        actions.moveToElement(element).build().perform();
     }
 }

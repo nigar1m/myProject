@@ -5,7 +5,6 @@ import actions.WebDriverManager;
 import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -46,18 +45,12 @@ public class UITogglePreviouslyViewedTest {
         By loginSubmitButton = By.xpath("//button[@class='q-primary q-fluid q-button-medium q-button submit']//span[contains(text(), 'Giriş Yap')]");
         elementActions.click(loginSubmitButton);
 
-        By hesabimMenu = By.xpath("//p[@class='link-text' and text()='Hesabım']");
-        WebElement hesabimElement = driver.findElement(hesabimMenu);
-        elementActions.hover(hesabimElement);
+        elementActions.hover(By.xpath("//p[@class='link-text' and text()='Hesabım']"));
 
-        By userInfo = By.cssSelector("a[href='/Hesabim/KullaniciBilgileri']");
+        By userInfo = By.cssSelector("a.loggedin-account-item[href='/Hesabim/KullaniciBilgileri']");
         elementActions.click(userInfo);
 
-        By previouslyViewedLink = By.xpath("//a[@class='layout-item-container' and @href='/onceden-gezdiklerim']");
-        elementActions.click(previouslyViewedLink);
-
-
-
-
+        By firstName = By.cssSelector("input[name='firstname']");
+        elementActions.sendKeys(firstName, "Nergiz");
     }
 }

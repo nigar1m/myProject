@@ -9,8 +9,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class DriverFactory {
     WebDriver driver;
     public WebDriver createDriver(String browser) {
-        String browserName;
-        WebDriver driver;
         switch (browser.toLowerCase()) {
             case "chrome":
                 ChromeOptions options = new ChromeOptions();
